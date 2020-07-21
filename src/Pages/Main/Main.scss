@@ -1,0 +1,117 @@
+.Nav_test {
+  height: 88px;
+  background-color: aqua;
+}
+
+.Nav_test2 {
+  height: 100px;
+  background-color: antiquewhite;
+}
+
+.Main {
+  .section_subscription-main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-image: url(https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/subscription/subscription_background.png);
+    padding-top: 160px;
+    margin-top: 0;
+    height: 880px;
+
+    .h2_subscription-main-title {
+      width: 100%;
+      margin-bottom: 28px;
+      font-size: 38px;
+      letter-spacing: -0.04em;
+      line-height: 130%;
+    }
+    .span_subscription-main-sub-title {
+      margin-bottom: 60px;
+      font-size: 16px;
+      line-height: 130%;
+      letter-spacing: -0.06em;
+    }
+    .div_btn-start {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+
+      .btn_start {
+        width: 180px;
+        height: 60px;
+        background-color: #0055b8;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        text-align: center;
+        font-weight: 400 !important;
+        font-size: 20px;
+        letter-spacing: -0.06em !important;
+        line-height: 60px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .section_free {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+    height: 776px;
+
+    .h2_free-title {
+      margin-bottom: 120px;
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 130%;
+      letter-spacing: -0.06em;
+      text-align: center;
+      color: #1e314a;
+
+      strong {
+        font-weight: 400;
+      }
+    }
+    .div_free-item-group {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 0;
+
+      .div_free-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          display: inline-block;
+          margin-bottom: 28px;
+          width: 160px;
+          height: 110px;
+        }
+
+        p {
+          color: #1e314a;
+          font-size: 20px;
+          line-height: 148%;
+          letter-spacing: -0.06em;
+          text-align: center;
+          white-space: pre-line;
+          color: #1e314a;
+        }
+      }
+    }
+  }
+}
