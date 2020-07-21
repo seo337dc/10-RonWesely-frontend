@@ -66,6 +66,18 @@ class Main extends Component {
                 </div>
               </div>
             </section>
+            <section className="section_smooth">
+              <h2 className="h2_smooth-title">
+                <strong>부드럽고 정교한 면도</strong>
+                <br />
+                독일산 5중 면도날
+              </h2>
+              <img
+                alt="img_shave"
+                className="img_smooth-image"
+                src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/subscription/razor_navy.png"
+              />
+            </section>
           </div>
         </div>
       </>
