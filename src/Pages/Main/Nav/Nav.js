@@ -61,8 +61,6 @@ class Nav extends Component {
                               >
                                 상품보기
                               </span>
-
-                              {/* 숨겨지는 nav바 ul로 작성할곳  */}
                             </span>
                           </h2>
                         </li>
@@ -125,7 +123,9 @@ class Nav extends Component {
             </div>
           </div>
         </div>
-        {this.state.valid === true ? <ProductNav /> : null}
+        <div className={this.state.valid === true ? "visible" : "unvisible"}>
+          <ProductNav className="ProductNav" />
+        </div>
       </>
     );
   }
