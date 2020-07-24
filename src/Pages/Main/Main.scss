@@ -1,37 +1,39 @@
 .Main {
-  .section_subscription-main {
+  .subscription-main {
     display: flex;
     flex-direction: column;
     text-align: center;
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: bottom;
-    background-image: url(https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/subscription/subscription_background.png);
     padding-top: 160px;
     margin-top: 0;
     height: 880px;
+    background: url(https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/subscription/subscription_background.png)
+      no-repeat center bottom / cover;
 
-    .h2_subscription-main-title {
+    .subscription-main-title {
       width: 100%;
       margin-bottom: 28px;
       font-size: 38px;
+      font-weight: 300;
       letter-spacing: -0.04em;
       line-height: 130%;
+
+      strong {
+        font-weight: 400;
+      }
     }
-    .span_subscription-main-sub-title {
+    .subscription-main-sub-title {
       margin-bottom: 60px;
       font-size: 16px;
+      font-weight: 300;
       line-height: 130%;
       letter-spacing: -0.06em;
     }
-    .div_btn-start {
+    .btn-start {
       display: flex;
       justify-content: center;
       margin: 0 auto;
 
-      .btn_start {
+      .start {
         width: 180px;
         height: 60px;
         background-color: #0055b8;
@@ -49,7 +51,7 @@
     }
   }
 
-  .section_free {
+  .free {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,7 +59,7 @@
     padding-top: 0;
     height: 776px;
 
-    .h2_free-title {
+    .free-title {
       margin-bottom: 120px;
       font-size: 38px;
       font-weight: 300;
@@ -70,7 +72,7 @@
         font-weight: 400;
       }
     }
-    .div_free-item-group {
+    .free-item-group {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -79,7 +81,7 @@
       width: 100%;
       margin-bottom: 0;
 
-      .div_free-item {
+      .free-item {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -105,7 +107,7 @@
     }
   }
 
-  .section_smooth {
+  .smooth {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -113,7 +115,7 @@
     height: 1021px;
     padding-top: 120px;
 
-    .h2_smooth-title {
+    .smooth-title {
       font-weight: 300;
       font-size: 48px;
       line-height: 130%;

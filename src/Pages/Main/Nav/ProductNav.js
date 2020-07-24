@@ -5,57 +5,57 @@ class ProductNav extends Component {
   render() {
     return (
       <div className="ProductNav">
-        <ul role="menu" className="ul_product-sub-nav">
-          <div className="div_sub-nav-wrapper">
-            <li role="menuitem" className="li_sub-nav-item">
-              <a role="menuitem" tabIndex="1" className="a_nav-item">
+        <ul role="menu" className="product-sub-nav">
+          <div className="sub-nav-wrapper">
+            <li role="menuitem" className="sub-nav-item">
+              <div role="menuitem" tabIndex="1" className="nav-item">
                 <img
                   alt="선물세트"
-                  className="img_gift-set"
+                  className="gift-set"
                   src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/navigation/gift_set.png"
                 />
-                <span className="span_item-name">선물세트</span>
-              </a>
+                <span className="item-name">선물세트</span>
+              </div>
             </li>
-            <li role="menuitem" className="li_sub-nav-item">
-              <a role="menuitem" tabIndex="1" className="a_nav-item">
+            <li role="menuitem" className="sub-nav-item">
+              <div role="menuitem" tabIndex="1" className="nav-item">
                 <img
                   alt="면도기세트"
-                  className="img_others"
+                  className="others"
                   src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/navigation/starter_navy.png"
                 />
-                <span className="span_item-name">면도기세트</span>
-              </a>
+                <span className="item-name">면도기세트</span>
+              </div>
             </li>
-            <li role="menuitem" className="li_sub-nav-item">
-              <a role="menuitem" tabIndex="1" className="a_nav-item">
+            <li role="menuitem" className="sub-nav-item">
+              <div role="menuitem" tabIndex="1" className="nav-item">
                 <img
                   alt="리필 면도날"
-                  className="img_others"
+                  className="others"
                   src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/navigation/refill_blade.png"
                 />
-                <span className="span_item-name">리필 면도날</span>
-              </a>
+                <span className="item-name">리필 면도날</span>
+              </div>
             </li>
-            <li role="menuitem" className="li_sub-nav-item">
-              <a role="menuitem" tabIndex="1" className="a_nav-item">
+            <li role="menuitem" className="sub-nav-item">
+              <div role="menuitem" tabIndex="1" className="nav-item">
                 <img
                   alt="쉐이빙 젤"
-                  className="img_others"
+                  className="others"
                   src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/navigation/shaving_gel_150.png"
                 />
-                <span className="span_item-name">쉐이빙 젤</span>
-              </a>
+                <span className="item-name">쉐이빙 젤</span>
+              </div>
             </li>
-            <li role="menuitem" className="li_sub-nav-item">
-              <a role="menuitem" tabIndex="1" className="a_nav-item">
+            <li role="menuitem" className="sub-nav-item">
+              <div role="menuitem" tabIndex="1" className="nav-item">
                 <img
                   alt="애프터쉐이브"
-                  className="img_others"
+                  className="others"
                   src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/navigation/after_shaving_gel_oily_60.png"
                 />
-                <span className="span_item-name">애프터쉐이브</span>
-              </a>
+                <span className="item-name">애프터쉐이브</span>
+              </div>
             </li>
           </div>
         </ul>
