@@ -155,7 +155,7 @@ class Login extends Component {
             >
               <p className="login-btn-text">로그인</p>
             </button>
-            <div className="goto-Signup" onClick={this.goToSign}>
+            <div className="go-Signup" onClick={this.goToSign}>
               회원가입
             </div>
           </div>
