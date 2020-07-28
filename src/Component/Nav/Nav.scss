@@ -1,0 +1,211 @@
+.Nav {
+  width: 100%;
+  height: 88px;
+  background-color: #ececec;
+  border-bottom: 0;
+  top: 0px;
+  position: fixed;
+
+  .header-wrapper-subscription-bg-active {
+    .scroll-wrapper-inserted {
+      top: 0;
+      left: 0;
+
+      .padding {
+        width: 100vw;
+        height: 88px;
+        padding: 0 25px;
+
+        .contain-wrapper {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 0 auto;
+          max-width: 1140px;
+          height: 100%;
+
+          .wesely-logo {
+            cursor: pointer;
+            width: 116px;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .user-info-wrapper {
+            display: flex;
+            flex-direction: row;
+            line-height: 130%;
+            font-weight: 300;
+            font-size: 16px;
+            letter-spacing: -0.06em;
+            color: #3a3a3a;
+
+            .login {
+              cursor: pointer;
+            }
+
+            .basket-wrapper {
+              display: flex;
+              margin-left: 15px;
+
+              .basket {
+                cursor: pointer;
+                margin-right: 4px;
+              }
+
+              .basket-quantity-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #0055b8;
+
+                .quantity-count {
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+
+        .inserted {
+          width: auto;
+          height: auto;
+          background-color: inherit;
+
+          .contents-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: auto;
+
+            .contents {
+              display: flex;
+              justify-content: space-between;
+              font-size: 19px;
+              padding: 0;
+              margin-left: 30px;
+              background-color: inherit;
+              list-style: none;
+
+              li {
+                font-size: 15px;
+                margin-right: 46px;
+
+                span {
+                  display: block;
+                  outline: none;
+                }
+              }
+
+              .items-inserted {
+                margin-bottom: 0;
+                outline: none;
+                text-decoration: none;
+                cursor: pointer;
+
+                .link-active {
+                  display: inline-block;
+                  font-weight: 300;
+                  line-height: 130%;
+                  letter-spacing: -0.06em;
+                  color: #3a3a3a;
+
+                  &:hover {
+                    color: blue;
+                  }
+                }
+              }
+
+              .items {
+                margin-bottom: 0;
+
+                &:hover {
+                  cursor: pointer;
+                }
+
+                .link {
+                  display: inline-block;
+                  font-weight: 300;
+                  line-height: 130%;
+                  letter-spacing: -0.06em;
+                  color: #3a3a3a;
+
+                  &:hover {
+                    color: blue;
+                  }
+                }
+              }
+
+              .link-limited-purchase {
+                position: relative;
+                display: inline-block;
+                font-weight: 300;
+                line-height: 130%;
+                letter-spacing: -0.06em;
+                color: #3a3a3a;
+                cursor: pointer;
+
+                &:hover {
+                  color: blue;
+                }
+
+                .limited-purchase {
+                  position: absolute;
+                  width: 100%;
+                  left: 0;
+                  top: -14px;
+                  font-size: 13px;
+                  line-height: 130%;
+                  text-align: center;
+                  letter-spacing: -0.04em;
+                  color: #0055b8;
+                  transform: translateY(0);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .NabSubContainer {
+      width: 100%;
+      height: 100px;
+      opacity: 0.7;
+      background-color: #f7f7f7;
+      animation: fadein;
+      animation-duration: 0.1s;
+    }
+
+    .NabSubContainer-none {
+      width: 100%;
+      height: 0px;
+      opacity: 0.7;
+      background-color: #f7f7f7;
+      animation: fadeout 0.1s;
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 100px;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    height: 100px;
+  }
+  to {
+    height: 0px;
+  }
+}

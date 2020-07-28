@@ -1,15 +1,12 @@
 $test_border1: 1px solid black;
 $base-height: 900px;
 .SideBar {
-  //height: $base-height; 보류
   width: 30%;
-  background-color: white;
-  position: absolute;
-  z-index: 101;
   left: 40%;
-
-  position: relative;
+  z-index: 101;
+  position: absolute;
   transform: translate(100%, 0%);
+  background-color: white;
 
   animation-name: slidein;
   animation-duration: 0.5s;
@@ -36,7 +33,6 @@ $base-height: 900px;
   }
 
   .center {
-    height: $base-height; //기본 크기로 지정
     overflow: hidden;
   }
 }
@@ -44,18 +40,17 @@ $base-height: 900px;
 .SideBar-none {
   height: 1300px;
   width: 30%;
-  background-color: white;
-  border: 1px solid black;
+  left: 50%;
   position: absolute;
   z-index: 101;
-  width: 25%;
-  left: 50%;
+  background-color: white;
 
   position: fixed;
   transform: translate(200%, 0%);
 
   animation-name: slideout;
   animation-duration: 0.5s;
+
   * {
     opacity: 0;
   }
