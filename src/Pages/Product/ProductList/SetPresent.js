@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import "./SetPresent.scss";
 
+const NEWSARR = [
+  "독점화된 면도기 시장을 '가성비'로 뚫은 브랜드, 시장을 정확히파고 들었다.",
+  "다이아몬드 코팅된 독일산5중 날로서 우수한 절삭력을 보여주는데도 1만원 이하다.",
+  "뛰어난 절삭력, 간결한 구성과 효율적인 디자인이 만들어내는만족감",
+];
+
 class SetPresent extends Component {
   state = {
     newKey: 0,
@@ -13,13 +19,7 @@ class SetPresent extends Component {
   };
 
   render() {
-    const { newKey } = this.state;
-    const newArr = [
-      "독점화된 면도기 시장을 '가성비'로 뚫은 브랜드, 시장을 정확히파고 들었다.",
-      "다이아몬드 코팅된 독일산5중 날로서 우수한 절삭력을 보여주는데도 1만원 이하다.",
-      "뛰어난 절삭력, 간결한 구성과 효율적인 디자인이 만들어내는만족감",
-    ];
-    let new_value = newArr[newKey];
+    const new_value = NEWSARR[this.state.newKey];
 
     return (
       <div className="SetPresent">

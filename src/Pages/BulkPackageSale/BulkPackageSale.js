@@ -108,7 +108,6 @@ class BulkPackageSale extends Component {
   }
 
   handleActive = (changeProduct, ListIndex, ProductId) => {
-    console.log(ProductId, ListIndex);
     let dataList = this.state.product[ProductId - 1].list.map((data) => {
       if (ListIndex === data.index) {
         data.active = !data.active;
