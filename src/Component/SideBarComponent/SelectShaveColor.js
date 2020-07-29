@@ -8,21 +8,27 @@ class SelectShaveColor extends Component {
         backgroundColor: "black",
         value: "미드나이트 세이버",
       },
+
       {
         backgroundColor: "blue",
         value: "사파이어 블루",
       },
+
       { backgroundColor: "grey", value: "슬레이트 그레이" },
     ],
+
     colorNow: "",
   };
 
   handleSelect = () => {
     this.props.handleChangeSideBar(this.props.index);
   };
+
   render() {
     const { index } = this.props;
+
     const { colorList } = this.state;
+
     const color =
       this.state.colorNow === "" ? colorList[0].value : this.state.colorNow;
 
