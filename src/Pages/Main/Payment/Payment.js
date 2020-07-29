@@ -1,10 +1,17 @@
 import React, { Component } from "react";
 import MethodList from "./MethodList";
+import CartBox from "./CartBox";
 import Footer from "../../../Component/Footer/Footer";
 import "./Payment.scss";
 
 class Payment extends Component {
   state = {
+    light: true,
+    cart: {
+      Info: [],
+    },
+    totalAmount: {},
+
     method: [
       {
         img:
@@ -31,8 +38,68 @@ class Payment extends Component {
       },
     ],
   };
+
+  componentDidMount() {
+    // let token = localStorage.getItem("access-token");
+    //IP 상시 확인
+    fetch("http://10.58.2.20:8000/order/cart-list", {
+      method: "GET",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.kQ_f8bwKpIAuexiG9yCcdMc1SY_uKfcJCwxiRpI6GWU",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          cart: res,
+          totalAmount: res.Info.pop(),
+        });
+      });
+  }
+
+  handlechangeActive = (index) => {
+    console.log(index);
+  };
+  donePayment = () => {
+    const { totalAmount } = this.state;
+    //ip 상시 확인
+    fetch("http://10.58.2.20:8000/order/checkout", {
+      method: "POST",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Nn0.HokKsyIB2_KpzLf0Q2A8n0zCII23LtIaNyfvCGNdXvk",
+      },
+      body: JSON.stringify({
+        order_id: totalAmount.order_id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        localStorage.setItem("access_token", res.access_token);
+        alert("결제가 완료 됐습니다.");
+        this.props.history.push("/main");
+      });
+  };
+
+  paymentLight = () => {
+    this.setState({
+      light: false,
+    });
+  };
+
+  goToMain = () => {
+    this.props.history.push("/main");
+  };
+
   render() {
-    const { method } = this.state;
+    const { light, cart, method, totalAmount } = this.state;
+    let totalPrice = totalAmount.total_price;
+    const { paymentLight, donePayment, goToMain } = this;
+    console.log(totalAmount);
+    const orderId = totalAmount.order_id;
+    console.log(orderId);
+
     return (
       <div className="Payment">
         <div className="nav-logo">
@@ -41,6 +108,7 @@ class Payment extends Component {
               alt="logo"
               src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/WiselyLogo.svg"
               className="logo"
+              onClick={goToMain}
             />
           </div>
         </div>
@@ -53,7 +121,7 @@ class Payment extends Component {
                 </div>
                 <div className="second-delivery-info">경기 용인시 기흥구</div>
               </div>
-              <div className="info-modify">수정 ></div>
+              <div className="info-modify">{"수정 >"}</div>
             </div>
             <div className="option-content">
               <div className="option-title">
@@ -63,13 +131,23 @@ class Payment extends Component {
                 </p>
                 <p className="title-light">선택해주세요</p>
               </div>
-              <div className="option-list-box">
-                {method.map((data) => (
-                  <MethodList img={data.img} text={data.text} />
+              <div className="option-list-box" onClick={paymentLight}>
+                {method.map((data, index) => (
+                  <MethodList
+                    handlechangeActive={this.handlechangeActive}
+                    img={data.img}
+                    text={data.text}
+                    index={index}
+                  />
                 ))}
               </div>
               <div className="option-bottom">
-                <button className="payment-button">
+                <button
+                  onClick={donePayment}
+                  className={
+                    light === true ? "payment-button" : "payment-button-light "
+                  }
+                >
                   <span className="payment-text">결제하기</span>
                 </button>
               </div>
@@ -78,34 +156,22 @@ class Payment extends Component {
           <div className="center-dividebar"></div>
           <div className="right-wrapper">
             <div className="cart-box">
-              <div className="selected-item-box-wrapper">
-                <div className="item-image-box">
-                  <img
-                    alt="goodsImg"
-                    className="selected-image"
-                    src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/items/starter_kit/starter_navy.png"
-                  />
-                </div>
-                <div className="item-info-box">
-                  <div className="item-info-left">
-                    <div className="item-info-title">
-                      면도기 세트 -
-                      <span className="item-info-quantity"> 2개</span>
-                    </div>
-                    <div className="item-info-description">
-                      <span className="item-info-option-value-navy">
-                        미드나이트 네이비
-                      </span>
-                      <span className="inserted">면도기 + 날 2입</span>
-                    </div>
-                  </div>
-                  <div className="item-info-price">8,900원</div>
-                </div>
-              </div>
+              {cart.Info.map((item) => (
+                <CartBox
+                  item_name={item.item_name}
+                  color={item.color}
+                  price={item.price}
+                  description={item.description}
+                  quantity={item.quantity}
+                  image_url={item.image_url}
+                />
+              ))}
               <div className="selected-item-price-div">
                 <div className="selected-item-price-box">
                   <div className="selected-item-price-text">주문금액</div>
-                  <div className="selected-item-price-price">17,800원</div>
+                  <div className="selected-item-price-price">{`${Number(
+                    totalPrice
+                  ).toLocaleString()}원`}</div>
                 </div>
                 <div className="selected-item-delivery-fee-box">
                   <div className="selected-item-delivery-fee-text">배송비</div>
@@ -116,7 +182,7 @@ class Payment extends Component {
                     최종 결제 금액
                   </div>
                   <div className="selected-item-total-price-price">
-                    17.800원
+                    {`${Number(totalPrice).toLocaleString()}원`}
                   </div>
                 </div>
               </div>

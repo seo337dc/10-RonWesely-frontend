@@ -1,0 +1,77 @@
+$test_border1: 1px solid black;
+$base-height: 900px;
+.SideBar {
+  width: 30%;
+  left: 40%;
+  z-index: 101;
+  position: absolute;
+  transform: translate(100%, 0%);
+  background-color: white;
+
+  animation-name: slidein;
+  animation-duration: 0.5s;
+
+  .top {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f3f3f3;
+
+    img {
+      margin-left: 10px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      margin-left: 30%;
+    }
+  }
+
+  .center {
+    overflow: hidden;
+  }
+}
+
+.SideBar-none {
+  height: 1300px;
+  width: 30%;
+  left: 50%;
+  position: absolute;
+  z-index: 101;
+  background-color: white;
+
+  position: fixed;
+  transform: translate(200%, 0%);
+
+  animation-name: slideout;
+  animation-duration: 0.5s;
+
+  * {
+    opacity: 0;
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translate(200%, 0%);
+  }
+
+  to {
+    transform: translate(100%, 0%);
+  }
+}
+
+@keyframes slideout {
+  from {
+    transform: translate(100%, 0%);
+  }
+
+  to {
+    transform: translate(200%, 0%);
+  }
+}
