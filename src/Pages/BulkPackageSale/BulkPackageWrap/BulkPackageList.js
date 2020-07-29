@@ -7,20 +7,16 @@ class BulkPackageList extends Component {
 
     return (
       <div className="BulkPackageList">
-        <li
-          className={
-            product.active === true ? "option-item-active" : "option-item"
-          }
-        >
+        <li className={product.active ? "option-item active" : "option-item"}>
           <div
             className="item-text-wrapper"
-            onClick={() => handleActive(product, index, id)}
+            onClick={() => handleActive(index, id)}
           >
             <div className="flex-left">
               <div
                 className={
-                  product.active === true
-                    ? "product-option-radio-active"
+                  product.active
+                    ? "product-option-radio active"
                     : "product-option-radio"
                 }
               />

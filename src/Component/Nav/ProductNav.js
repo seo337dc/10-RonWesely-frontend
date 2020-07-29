@@ -3,8 +3,42 @@ import "./ProductNav.scss";
 
 class ProductNav extends Component {
   // 데이터 테스트 중
+  state = {
+    Info: [
+      {
+        product_name: "",
+        product_size: "",
+        product_description: "",
+        size_description: "",
+        product_price: "",
+      },
+    ],
+    showProduct: {
+      index: 0,
+      product_name: "",
+      product_size: "",
+      product_price: "",
+    },
+    unshowProduct: {
+      index: 1,
+      product_name: "",
+      product_size: "",
+      product_price: "",
+    },
+    activeDrop: false,
+  };
+
   // state = {
   //   Info: [
+  //     {
+  //       name: "",
+  //       description: "",
+  //       price: "",
+  //       product_name: "",
+  //       product_size: "",
+  //       size_description: "",
+  //       product_price: "",
+  //     },
   //     {
   //       name: "",
   //       description: "",
@@ -17,56 +51,20 @@ class ProductNav extends Component {
   //   ],
   //   showProduct: {
   //     index: 0,
-  //     product_name: "",
-  //     product_size: "",
-  //     product_price: "",
+  //     product_name: "여행용",
+  //     product_size: "30ml",
+  //     product_price: "3,900",
   //   },
   //   unshowProduct: {
-  //     index: 0,
-  //     product_name: "",
-  //     product_size: "",
-  //     product_price: "",
+  //     index: 1,
+  //     product_name: "스탠다드",
+  //     product_size: "60ml",
+  //     product_price: "6,500",
   //   },
+  //   activeDrop: false,
   // };
 
-  state = {
-    Info: [
-      {
-        name: "",
-        description: "",
-        price: "",
-        product_name: "",
-        product_size: "",
-        size_description: "",
-        product_price: "",
-      },
-      {
-        name: "",
-        description: "",
-        price: "",
-        product_name: "",
-        product_size: "",
-        size_description: "",
-        product_price: "",
-      },
-    ],
-    showProduct: {
-      index: 0,
-      product_name: "여행용",
-      product_size: "30ml",
-      product_price: "3,900",
-    },
-    unshowProduct: {
-      index: 1,
-      product_name: "스탠다드",
-      product_size: "60ml",
-      product_price: "6,500",
-    },
-    activeDrop: false,
-  };
-
   componentDidMount() {
-    console.log("실행1");
     fetch("http://10.58.7.78:8000/product/" + this.props.productNum)
       .then((res) => res.json())
       .then((res) => {
@@ -88,6 +86,7 @@ class ProductNav extends Component {
             },
           });
         } else {
+          console.log("실행1");
           this.setState({
             Info: res.Info,
           });
@@ -96,7 +95,6 @@ class ProductNav extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log("실행2" + this.props.productNum);
     if (prevProps.productNum !== this.props.productNum) {
       fetch("http://10.58.7.78:8000/product/" + this.props.productNum)
         .then((res) => res.json())
@@ -119,6 +117,7 @@ class ProductNav extends Component {
               },
             });
           } else {
+            console.log("실행2" + this.props.productNum);
             this.setState({
               Info: res.Info,
             });
@@ -132,7 +131,7 @@ class ProductNav extends Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state.Info.length);
     return (
       <div className="ProductNav">
         <div className="inner">
@@ -140,8 +139,8 @@ class ProductNav extends Component {
             <div className="product-name">
               {this.state.Info.length === 1 ? (
                 <div>
-                  {this.state.Info[0].name}
-                  <span>({this.state.Info[0].description})</span>
+                  {this.state.Info[0].product_name}
+                  <span>({this.state.Info[0].product_description})</span>
                 </div>
               ) : (
                 <>
@@ -154,7 +153,7 @@ class ProductNav extends Component {
                     }
                   >
                     {this.state.showProduct.product_name}
-                    <span>({this.state.showProduct.product_name})</span>
+                    <span>({this.state.showProduct.product_size})</span>
                   </div>
                   <div
                     className={
@@ -170,7 +169,7 @@ class ProductNav extends Component {
                     }
                   >
                     {this.state.unshowProduct.product_name}
-                    <span>({this.state.unshowProduct.product_name})</span>
+                    <span>({this.state.unshowProduct.product_size})</span>
                   </div>
                 </>
               )}
@@ -181,7 +180,7 @@ class ProductNav extends Component {
             <div className="review">후기(377)</div>
             <div className="price">
               {this.state.Info.length === 1 ? (
-                <>{this.state.Info[0].price}</>
+                <>{this.state.Info[0].product_price}</>
               ) : (
                 <>{this.state.showProduct.product_price}</>
               )}

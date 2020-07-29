@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "../../Component/Nav/Nav";
 import SetPresent from "./ProductList/SetPresent";
 import SideBar from "../../Component/SideBar/SideBar";
+
 import "./Product.scss";
 
 class Product extends Component {
@@ -49,6 +50,7 @@ class Product extends Component {
       <>
         <div className={this.state.sideBarValid ? "Product-fixed" : ""}></div>
         <SideBar
+          productIndex={index}
           sideBarValid={this.state.sideBarValid}
           changeSideBarValid={this.changeSideBarValidInSideBar}
         />
