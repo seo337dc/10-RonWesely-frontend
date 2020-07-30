@@ -6,8 +6,4 @@ const config = {
   POST:
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Nn0.HokKsyIB2_KpzLf0Q2A8n0zCII23LtIaNyfvCGNdXvk",
 };
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 export default config;

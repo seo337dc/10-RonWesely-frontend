@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import PageTop from "../PageTop/PageTop";
-=======
 import Config from "../../config";
->>>>>>> master
 import "./Signup.scss";
 
 class Signup extends Component {
