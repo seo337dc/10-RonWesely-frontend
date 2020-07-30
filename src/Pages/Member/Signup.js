@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Config from "../../config";
 import "./Signup.scss";
 
 class Signup extends Component {
@@ -14,8 +15,8 @@ class Signup extends Component {
     };
   }
 
-  handlelogin = (e) => {
-    fetch("http://10.58.2.20:8000/user/SignUp", {
+  handleSignup = (e) => {
+    fetch(`${Config.IP}/user/SignUp`, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -163,7 +164,7 @@ class Signup extends Component {
             </div>
             <div>
               <button
-                onClick={this.handlelogin}
+                onClick={this.handleSignup}
                 className={
                   this.state.birthday.length >= 6 &&
                   this.state.phone_number.length >= 10 &&
