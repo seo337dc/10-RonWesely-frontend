@@ -2,7 +2,6 @@
   .product-sub-nav {
     width: 100vw;
     height: 100px;
-    top: 88px;
     list-style: none;
     animation: fadein 0.1s;
 
@@ -25,7 +24,6 @@
           outline: none;
           text-decoration: none;
           opacity: 0.5;
-          // color: #cecece;
 
           &:hover {
             opacity: 1;

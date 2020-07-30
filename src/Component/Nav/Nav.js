@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import NavSub from "./NavSub";
 import ProductNav from "./ProductNav";
 import "./Nav.scss";
@@ -11,15 +11,15 @@ class Nav extends Component {
     this.state = {
       subNavActive: false,
       sideBarValid: false,
-      activeProductNav: false,
       changeSideBarValidInProduct: this.props.changeSideBarValidInProduct,
     };
   }
 
-  handleProductNav = () => {
+  handleProductNav = (index) => {
     this.setState({
       subNavActive: !this.state.subNavActive,
     });
+    this.props.history.push(`/product/${index}`);
   };
 
   render() {
@@ -114,7 +114,7 @@ class Nav extends Component {
             className={
               this.state.subNavActive
                 ? "NabSubContainer"
-                : "NabSubContainer-none"
+                : "NabSubContainer none"
             }
           >
             {this.state.subNavActive ? (
@@ -123,14 +123,15 @@ class Nav extends Component {
           </div>
         </div>
 
-        {this.props.activeProductNav ? (
+        {this.props.productNum && (
           <ProductNav
+            productNum={this.props.productNum}
             changeSideBarValidInProduct={this.props.changeSideBarValidInProduct}
           />
-        ) : null}
+        )}
       </div>
     );
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

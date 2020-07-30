@@ -7,7 +7,7 @@ class Main extends Component {
   render() {
     return (
       <>
-        <Nav activeProductNav={null} />
+        <Nav />
         <div className="Main">
           <div>
             <div className="subscription-main">
