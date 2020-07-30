@@ -1,7 +1,5 @@
 const config = {
-  GETIP: "http://10.58.4.52:8000/order/cart-list",
-
-  POSTIP: "http://10.58.4.52:8000/order/checkout",
+  IP: "http://10.58.4.52:8000",
 
   GET:
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.kQ_f8bwKpIAuexiG9yCcdMc1SY_uKfcJCwxiRpI6GWU",

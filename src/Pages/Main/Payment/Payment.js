@@ -3,7 +3,7 @@ import MethodList from "./MethodList";
 import CartBox from "./CartBox";
 import Footer from "../../../Component/Footer/Footer";
 import PaymentData from "./PaymentData";
-import Config from "./config";
+import Config from "../../../config";
 import PageTop from "../../PageTop/PageTop";
 import "./Payment.scss";
 
@@ -14,11 +14,12 @@ class Payment extends Component {
       Info: [],
     },
     totalAmount: {},
+    activeTab: "",
   };
 
   componentDidMount() {
     // IP 상시 확인
-    fetch(Config.GETIP, {
+    fetch(`${Config.IP}/order/cart-list`, {
       method: "GET",
       headers: {
         Authorization: Config.GET,
@@ -36,7 +37,7 @@ class Payment extends Component {
   donePayment = () => {
     const { totalAmount } = this.state;
     //ip 상시 확인
-    fetch(Config.POSTIP, {
+    fetch(`${Config.IP}/order/checkout`, {
       method: "POST",
       headers: {
         Authorization: Config.POST,
@@ -61,6 +62,13 @@ class Payment extends Component {
 
   goToMain = () => {
     this.props.history.push("/main");
+  };
+
+  listActive = (txt) => {
+    console.log("listActive txt >>> ", txt);
+    this.setState({
+      activeTab: txt,
+    });
   };
 
   render() {
@@ -106,7 +114,8 @@ class Payment extends Component {
                     key={index}
                     img={data.img}
                     text={data.text}
-                    index={index}
+                    isActive={this.state.activeTab} // 어떤 버튼이 활성화 되어 있는지에 대한 정보
+                    handleActive={(txt) => this.listActive(txt)}
                   />
                 ))}
               </div>

@@ -12,7 +12,7 @@ class BulkPackageSale extends Component {
     this.state = {
       product: [
         {
-          id: 1,
+          id: 3,
           img:
             "https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/bulkLanding/bulk_blade.png",
           title: "리필면도날",
@@ -50,7 +50,7 @@ class BulkPackageSale extends Component {
           ],
         },
         {
-          id: 2,
+          id: 4,
           img:
             "https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/bulkLanding/bulk_shaving_gel.png",
           title: "쉐이빙젤",
@@ -72,14 +72,14 @@ class BulkPackageSale extends Component {
               active: false,
             },
             {
-              index: 1,
+              index: 2,
               ea: "3개",
               discount: "15% 할인",
               price: "11,400원",
               active: false,
             },
             {
-              index: 2,
+              index: 3,
               ea: "4개",
               discount: "20% 할인",
               price: "14,400원",
@@ -88,7 +88,7 @@ class BulkPackageSale extends Component {
           ],
         },
         {
-          id: 3,
+          id: 5,
           img:
             "https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/bulkLanding/bulk_after_shave.png",
           title: "리페어 애프터쉐이브",
@@ -110,14 +110,14 @@ class BulkPackageSale extends Component {
               active: false,
             },
             {
-              index: 1,
+              index: 2,
               ea: "3개",
               discount: "15% 할인",
               price: "16,500원",
               active: false,
             },
             {
-              index: 2,
+              index: 3,
               ea: "4개",
               discount: "20% 할인",
               price: "20,800원",
@@ -130,9 +130,14 @@ class BulkPackageSale extends Component {
   }
 
   handleActive = (changeProduct, ListIndex, ProductId) => {
-    console.log(ProductId + 2, ListIndex + 1);
-    let dataList = this.state.product[ProductId - 1].list.map((data) => {
-      if (ListIndex === data.index) {
+    const productData = this.state.product.filter((data) => {
+      if (data.id === ProductId) {
+        return data;
+      }
+    });
+
+    let dataList = productData[0].list.map((data) => {
+      if (data.index === ListIndex) {
         data.active = !data.active;
         return data;
       } else {
@@ -158,7 +163,7 @@ class BulkPackageSale extends Component {
         }
       }),
     });
-
+    ////////////////
     // 정보 보내는 틀 잡아놓음.
 
     // fetch(, {
@@ -168,8 +173,8 @@ class BulkPackageSale extends Component {
     //     "",
     //   },
     //   body : JSON.stringify({
-    //    product_id: ProductId+2,
-    //    quantity: ListIndex+1,
+    //    product_id: ProductId,
+    //    quantity: ListIndex,
     //   }),
     // })
     // .then((res) => res.json())
@@ -198,6 +203,7 @@ class BulkPackageSale extends Component {
         {product.map((data, index) => (
           <BulkPackageWrap
             key={data.id}
+            id={data.id}
             img={data.img}
             title={data.title}
             subtitle={data.subtitle}

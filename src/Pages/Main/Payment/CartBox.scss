@@ -56,39 +56,3 @@
     }
   }
 }
-
-.selected-item-price-div {
-  margin-top: 20px;
-  padding: 0 10px;
-
-  .selected-item-price-box {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 300;
-    line-height: 130%;
-    letter-spacing: -0.06em;
-    color: #979797;
-  }
-
-  .selected-item-delivery-fee-box {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 6px;
-    font-weight: 300;
-    line-height: 130%;
-    letter-spacing: -0.06em;
-    color: #979797;
-  }
-
-  .selected-item-total-price-box {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 130%;
-    letter-spacing: -0.06em;
-    color: #3a3a3a;
-  }
-}
