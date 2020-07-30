@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import API_URL from "./config";
+import config from "../../config";
 import "./Login.scss";
 
 class Login extends Component {
@@ -18,7 +18,7 @@ class Login extends Component {
   };
 
   handleClick = (e) => {
-    fetch(`${API_URL}/user/SignIn`, {
+    fetch(`${config.IP}/user/SignIn`, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
