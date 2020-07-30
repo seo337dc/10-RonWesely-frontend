@@ -1,4 +1,6 @@
 .Main {
+  margin-top: 88px;
+
   .subscription-main {
     display: flex;
     flex-direction: column;
@@ -21,6 +23,7 @@
         font-weight: 400;
       }
     }
+
     .subscription-main-sub-title {
       margin-bottom: 60px;
       font-size: 16px;
@@ -28,6 +31,7 @@
       line-height: 130%;
       letter-spacing: -0.06em;
     }
+
     .btn-start {
       display: flex;
       justify-content: center;
@@ -72,6 +76,7 @@
         font-weight: 400;
       }
     }
+
     .free-item-group {
       display: flex;
       flex-direction: row;

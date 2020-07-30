@@ -1,23 +1,13 @@
 .Nav {
-  .visible {
-    /* 애니메이션 이름 */
-    animation: 1s alternate forwards fadein;
-  }
-  .unvisible {
-    /* 애니메이션 이름 */
-    animation: 1s alternate forwards fadeout;
-  }
+  width: 100%;
+  height: 88px;
+  background-color: #ececec;
+  border-bottom: 0;
+  top: 0px;
+  position: fixed;
 
   .header-wrapper-subscription-bg-active {
-    height: 88px;
-    background-color: #ececec;
-    border-bottom: 0;
-    position: relative;
-    transition: height 0.2s ease-in-out;
-
     .scroll-wrapper-inserted {
-      display: block;
-      position: absolute;
       top: 0;
       left: 0;
 
@@ -35,17 +25,17 @@
           height: 100%;
 
           .wesely-logo {
-            cursor: pointer;
             width: 116px;
 
             img {
+              cursor: pointer;
               width: 100%;
             }
           }
 
           .user-info-wrapper {
             display: flex;
-            flex-direction: row;
+
             line-height: 130%;
             font-weight: 300;
             font-size: 16px;
@@ -64,6 +54,7 @@
                 cursor: pointer;
                 margin-right: 4px;
               }
+
               .basket-quantity-wrapper {
                 display: flex;
                 justify-content: center;
@@ -88,7 +79,6 @@
 
           .contents-wrapper {
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
             height: auto;
 
@@ -125,16 +115,20 @@
                   color: #3a3a3a;
 
                   &:hover {
-                    color: blue;
+                    color: #0000ff;
                   }
                 }
               }
+
               .items {
                 margin-bottom: 0;
-                cursor: pointer;
+
+                &:hover {
+                  cursor: pointer;
+                }
 
                 .link {
-                  display: inline-block;
+                  display: inline;
                   font-weight: 300;
                   line-height: 130%;
                   letter-spacing: -0.06em;
@@ -145,6 +139,7 @@
                   }
                 }
               }
+
               .link-limited-purchase {
                 position: relative;
                 display: inline-block;
@@ -176,29 +171,40 @@
         }
       }
     }
+
+    .NabSubContainer {
+      width: 100%;
+      height: 100px;
+      opacity: 0.7;
+      background-color: #f7f7f7;
+      animation: fadein;
+      animation-duration: 0.1s;
+    }
+
+    .NabSubContainer.none {
+      width: 100%;
+      height: 0px;
+      opacity: 0.7;
+      background-color: #f7f7f7;
+      animation: fadeout 0.1s;
+    }
   }
 }
 
-// /* 키프레임 이름 = 애니메이션 이름 */
 @keyframes fadein {
   from {
-    opacity: 1;
-    transform: translateY(-188px);
     height: 0px;
   }
   to {
-    transform: translateY(-88px); // 클릭시 내려오는것
+    height: 100px;
   }
 }
+
 @keyframes fadeout {
   from {
-    opacity: 1;
-    transform: translateY(-88px);
+    height: 100px;
   }
   to {
-    visibility: hidden;
-    opacity: 0;
     height: 0px;
-    transform: translateY(-188px);
   }
 }

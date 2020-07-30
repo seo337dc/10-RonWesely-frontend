@@ -6,7 +6,7 @@ import "./BulkPackageWrap.scss";
 
 class BulkPackageWrap extends Component {
   render() {
-    const { key, img, title, subtitle, volume, list } = this.props;
+    const { id, img, title, subtitle, volume, list, handleActive } = this.props;
 
     return (
       <div className="BulkPackgeWrap">
@@ -14,15 +14,21 @@ class BulkPackageWrap extends Component {
           <BulkPackageImg img={img} />
           <div className="product-text-wrapper">
             <BulkPackageTitle
-              key={key}
+              key={id}
               title={title}
               subtitle={subtitle}
               volume={volume}
             />
 
             <ul className="option-list-wrapper">
-              {list.map((data) => (
-                <BulkPackageList product={data} />
+              {list.map((data, idx) => (
+                <BulkPackageList
+                  key={idx}
+                  id={id}
+                  index={data.index}
+                  product={data}
+                  handleActive={handleActive}
+                />
               ))}
             </ul>
           </div>

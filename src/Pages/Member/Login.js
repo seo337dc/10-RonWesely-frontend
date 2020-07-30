@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import PageTop from "../PageTop/PageTop";
+import config from "../../config";
 import "./Login.scss";
 
 class Login extends Component {
@@ -17,7 +19,7 @@ class Login extends Component {
   };
 
   handleClick = (e) => {
-    fetch("http://10.58.2.20:8000/user/SignIn", {
+    fetch(`${config.IP}/user/SignIn`, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -42,14 +44,19 @@ class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  goToMain = () => {
+    this.props.history.push("/main");
+  };
+
   render() {
     const { email, password } = this.state;
-    const idvalid =
-      email.includes("@") && email.includes(".co") && email.length >= 10;
-    console.log(this.state);
+    const idvalid = email.includes("@", "co") && email.length >= 10;
     return (
       <div className="Login">
+        <PageTop />
         <img
+          onClick={this.goToMain}
+          alt="logo"
           className="login-logo"
           src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/WiselyLogo.svg"
         />

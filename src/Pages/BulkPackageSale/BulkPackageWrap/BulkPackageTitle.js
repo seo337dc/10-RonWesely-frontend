@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./BulkPackageWrap.scss";
+import "./BulkPackageTitle.scss";
 
 class BulkPackageTitle extends Component {
   render() {
