@@ -1,11 +1,16 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import "./CartBox.scss";
-=======
-import "./Payment.scss";
->>>>>>> master
+import "./SelectCart.scss";
 
-class CartBox extends Component {
+class SelectCart extends Component {
+  state = {
+    item_name: "선물세트",
+    color: "미드나이트네이비",
+    price: "29,800",
+    description: "",
+    quantity: "1",
+    image_url:
+      "https://wiselyshave-cdn.s3.amazonaws.com/assets/images/items/gift_set/gift_set_navy.png",
+  };
   render() {
     const {
       item_name,
@@ -14,27 +19,14 @@ class CartBox extends Component {
       description,
       quantity,
       image_url,
-    } = this.props;
+    } = this.state;
     return (
-      <div className="CartBox">
+      <div className="SelectCart">
         <div className="selected-item-box-wrapper">
           <div className="item-image-box">
             <img alt="goodsImg" className="selected-image" src={image_url} />
           </div>
           <div className="item-info-box">
-<<<<<<< HEAD
-            <div className="left">
-              <div className="title">
-                {`${item_name}-`}
-                <span className="quantity"> {`${quantity}개`}</span>
-              </div>
-              <div className="description">
-                <span className="option-value-navy">{color}</span>
-                <span className="inserted">{description}</span>
-              </div>
-            </div>
-            <div className="price">{`${Number(price).toLocaleString()}원`}</div>
-=======
             <div className="item-info-left">
               <div className="item-info-title">
                 {`${item_name}-`}
@@ -45,10 +37,7 @@ class CartBox extends Component {
                 <span className="inserted">{description}</span>
               </div>
             </div>
-            <div className="item-info-price">{`${Number(
-              price
-            ).toLocaleString()}원`}</div>
->>>>>>> master
+            <div className="item-info-price">{price} 원</div>
           </div>
         </div>
       </div>
@@ -56,4 +45,4 @@ class CartBox extends Component {
   }
 }
 
-export default CartBox;
+export default SelectCart;

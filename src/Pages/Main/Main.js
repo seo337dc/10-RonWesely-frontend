@@ -8,7 +8,7 @@ class Main extends Component {
   render() {
     return (
       <>
-        <Nav activeProductNav={null} />
+        <Nav />
         <div className="Main">
           <PageTop />
           <div>

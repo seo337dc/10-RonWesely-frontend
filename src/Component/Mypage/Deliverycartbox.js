@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import "./CartBox.scss";
-=======
-import "./Payment.scss";
->>>>>>> master
+import "./Deliverycartbox.scss";
 
-class CartBox extends Component {
+class DeliveryCartBox extends Component {
   render() {
     const {
       item_name,
@@ -14,7 +10,9 @@ class CartBox extends Component {
       description,
       quantity,
       image_url,
+      totalprice,
     } = this.props;
+
     return (
       <div className="CartBox">
         <div className="selected-item-box-wrapper">
@@ -22,19 +20,6 @@ class CartBox extends Component {
             <img alt="goodsImg" className="selected-image" src={image_url} />
           </div>
           <div className="item-info-box">
-<<<<<<< HEAD
-            <div className="left">
-              <div className="title">
-                {`${item_name}-`}
-                <span className="quantity"> {`${quantity}개`}</span>
-              </div>
-              <div className="description">
-                <span className="option-value-navy">{color}</span>
-                <span className="inserted">{description}</span>
-              </div>
-            </div>
-            <div className="price">{`${Number(price).toLocaleString()}원`}</div>
-=======
             <div className="item-info-left">
               <div className="item-info-title">
                 {`${item_name}-`}
@@ -48,7 +33,6 @@ class CartBox extends Component {
             <div className="item-info-price">{`${Number(
               price
             ).toLocaleString()}원`}</div>
->>>>>>> master
           </div>
         </div>
       </div>
@@ -56,4 +40,4 @@ class CartBox extends Component {
   }
 }
 
-export default CartBox;
+export default DeliveryCartBox;

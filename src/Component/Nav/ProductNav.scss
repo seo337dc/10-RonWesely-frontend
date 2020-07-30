@@ -22,6 +22,29 @@
         line-height: 50px; //텍스트 세로중앙 정렬 (line 높이를  부모 높이만큼 설정하면 됨)
         font-size: 20px;
 
+        .product-origin {
+          cursor: pointer;
+        }
+
+        .drop-show {
+          height: 50px;
+          width: 200px;
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+          cursor: pointer;
+          background-color: white;
+
+          span {
+            font-size: 15px;
+            color: #979797;
+          }
+        }
+
+        .drop-unshow {
+          visibility: hidden;
+        }
+
         span {
           font-size: 18px;
           color: #979797;

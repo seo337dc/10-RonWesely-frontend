@@ -11,15 +11,15 @@ class Nav extends Component {
     this.state = {
       subNavActive: false,
       sideBarValid: false,
-      activeProductNav: false,
       changeSideBarValidInProduct: this.props.changeSideBarValidInProduct,
     };
   }
 
-  handleProductNav = () => {
+  handleProductNav = (index) => {
     this.setState({
       subNavActive: !this.state.subNavActive,
     });
+    this.props.history.push(`/product/${index}`);
   };
 
   goToMain = () => {
@@ -130,7 +130,7 @@ class Nav extends Component {
             className={
               this.state.subNavActive
                 ? "NabSubContainer"
-                : "NabSubContainer-none"
+                : "NabSubContainer none"
             }
           >
             {this.state.subNavActive ? (
@@ -139,11 +139,12 @@ class Nav extends Component {
           </div>
         </div>
 
-        {this.props.activeProductNav ? (
+        {this.props.productNum && (
           <ProductNav
+            productNum={this.props.productNum}
             changeSideBarValidInProduct={this.props.changeSideBarValidInProduct}
           />
-        ) : null}
+        )}
       </div>
     );
   }

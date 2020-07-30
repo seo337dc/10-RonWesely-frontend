@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import BulkPackageWrap from "./BulkPackageWrap/BulkPackageWrap";
 import Footer from "../../Component/Footer/Footer";
 import Nav from "../../Component/Nav/Nav";
-import PageTop from "../PageTop/PageTop";
+import bulkPackageProduct from "./BulkPackageProduct";
 import "./BulkPackageSale.scss";
 
 class BulkPackageSale extends Component {
@@ -10,134 +10,13 @@ class BulkPackageSale extends Component {
     super();
 
     this.state = {
-      product: [
-        {
-          id: 3,
-          img:
-            "https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/bulkLanding/bulk_blade.png",
-          title: "리필면도날",
-          subtitle: "독일산 5중 날",
-          volume: "",
-          list: [
-            {
-              index: 0,
-              ea: "4개입",
-              discount: "할인 없음",
-              price: "9,600원",
-              active: false,
-            },
-            {
-              index: 1,
-              ea: "8개입",
-              discount: "7% 할인",
-              price: "17,800원",
-              active: false,
-            },
-            {
-              index: 2,
-              ea: "12개입",
-              discount: "15% 할인",
-              price: "24,400원",
-              active: false,
-            },
-            {
-              index: 3,
-              ea: "16개입",
-              discount: "20% 할인",
-              price: "30,700원",
-              active: false,
-            },
-          ],
-        },
-        {
-          id: 4,
-          img:
-            "https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/bulkLanding/bulk_shaving_gel.png",
-          title: "쉐이빙젤",
-          subtitle: "부드럽고 풍성한 거품",
-          volume: "150ml",
-          list: [
-            {
-              index: 0,
-              ea: "1개",
-              discount: "할인 없음",
-              price: "4,500원",
-              active: false,
-            },
-            {
-              index: 1,
-              ea: "2개",
-              discount: "10% 할인",
-              price: "8,100원",
-              active: false,
-            },
-            {
-              index: 2,
-              ea: "3개",
-              discount: "15% 할인",
-              price: "11,400원",
-              active: false,
-            },
-            {
-              index: 3,
-              ea: "4개",
-              discount: "20% 할인",
-              price: "14,400원",
-              active: false,
-            },
-          ],
-        },
-        {
-          id: 5,
-          img:
-            "https://wiselyshave-cdn.s3.amazonaws.com/assets/images/background/bulkLanding/bulk_after_shave.png",
-          title: "리페어 애프터쉐이브",
-          subtitle: "면도 후 진정과 보습",
-          volume: "60ml",
-          list: [
-            {
-              index: 0,
-              ea: "1개",
-              discount: "할인 없음",
-              price: "6,500원",
-              active: false,
-            },
-            {
-              index: 1,
-              ea: "2개",
-              discount: "10% 할인",
-              price: "11,700원",
-              active: false,
-            },
-            {
-              index: 2,
-              ea: "3개",
-              discount: "15% 할인",
-              price: "16,500원",
-              active: false,
-            },
-            {
-              index: 3,
-              ea: "4개",
-              discount: "20% 할인",
-              price: "20,800원",
-              active: false,
-            },
-          ],
-        },
-      ],
+      product: bulkPackageProduct.product,
     };
   }
 
-  handleActive = (changeProduct, ListIndex, ProductId) => {
-    const productData = this.state.product.filter((data) => {
-      if (data.id === ProductId) {
-        return data;
-      }
-    });
-
-    let dataList = productData[0].list.map((data) => {
-      if (data.index === ListIndex) {
+  handleActive = (ListIndex, ProductId) => {
+    let dataList = this.state.product[ProductId - 1].list.map((data) => {
+      if (ListIndex === data.index) {
         data.active = !data.active;
         return data;
       } else {
@@ -163,29 +42,6 @@ class BulkPackageSale extends Component {
         }
       }),
     });
-    ////////////////
-    // 정보 보내는 틀 잡아놓음.
-
-    fetch("http://10.58.4.52:8000/order/bulk-order", {
-      method: "POST",
-      headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.DbCRvyvj5ai7zxm8dwLI_zb-CNNI5jvEA9j43cWkovc",
-      },
-      body: JSON.stringify({
-        Info: [
-          {
-            product_id: ProductId,
-            quantity: ListIndex + 1,
-          },
-        ],
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        localStorage.setItem("access_token", res.access_tokken);
-      });
   };
 
   render() {
@@ -193,7 +49,7 @@ class BulkPackageSale extends Component {
     return (
       <div className="BulkPackageSale">
         <Nav />
-        <PageTop />
+
         <div className="bulk-purchase-main">
           <div className="bulk-purchase-text-wrapper">
             <h2 className="bulk-purchase-title">대용량 팩 한정판매!</h2>
@@ -205,17 +61,19 @@ class BulkPackageSale extends Component {
           </div>
         </div>
 
-        {product.map((data, index) => (
-          <BulkPackageWrap
-            key={data.id}
-            id={data.id}
-            img={data.img}
-            title={data.title}
-            subtitle={data.subtitle}
-            volume={data.volume}
-            list={data.list}
-            handleActive={this.handleActive}
-          />
+        {product.map((data) => (
+          <div key={data.id}>
+            <BulkPackageWrap
+              key={data.id}
+              id={data.id}
+              img={data.img}
+              title={data.title}
+              subtitle={data.subtitle}
+              volume={data.volume}
+              list={data.list}
+              handleActive={this.handleActive}
+            />
+          </div>
         ))}
 
         <Footer />

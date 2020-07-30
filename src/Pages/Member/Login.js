@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+<<<<<<< HEAD
 import PageTop from "../PageTop/PageTop";
+=======
+import config from "../../config";
+>>>>>>> master
 import "./Login.scss";
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      userid: "",
+      email: "",
       password: "",
       displayActive: false,
     };
@@ -17,11 +21,11 @@ class Login extends Component {
     this.props.history.push("/signup");
   };
 
-  handlelogin = (e) => {
-    fetch("http://10.58.6.255:8000/users/SignIn", {
+  handleClick = (e) => {
+    fetch(`${config.IP}/user/SignIn`, {
       method: "POST",
       body: JSON.stringify({
-        userid: this.state.userid,
+        email: this.state.email,
         password: this.state.password,
       }),
     })
@@ -29,7 +33,7 @@ class Login extends Component {
       .then((res) => {
         console.log(res);
         localStorage.setItem("access_token", res.access_token);
-        this.props.history.push("/main");
+        this.props.history.push("/mypage");
       });
   };
 
@@ -48,8 +52,13 @@ class Login extends Component {
   };
 
   render() {
+<<<<<<< HEAD
     const { userid, password } = this.state;
     const { goToMain } = this;
+=======
+    const { email, password } = this.state;
+    const idvalid = email.includes("@", "co") && email.length >= 10;
+>>>>>>> master
     return (
       <div className="Login">
         <PageTop />
@@ -97,69 +106,50 @@ class Login extends Component {
               />
             </div>
           </div>
-          <div
-            className={
-              this.state.displayActive ? "email-box-visible" : "email-box-none"
-            }
-          >
+          <div className={this.state.displayActive ? "email-box" : "none"}>
             <div
               className={
-                userid.includes("@") &&
-                userid.includes(".co") &&
-                userid.length >= 10
-                  ? "email-input-container-blue"
-                  : "email-input-container"
+                idvalid ? "email-input-container blue" : "email-input-container"
               }
             >
               <input
                 type="text"
                 placeholder="이메일"
                 className="email-input"
-                name="userid"
+                name="email"
                 onChange={this.inputHandler}
               />
               <img
-                className={
-                  userid.includes("@") &&
-                  userid.includes(".co") &&
-                  userid.length >= 10
-                    ? "check-img-visible"
-                    : "check-img-none"
-                }
+                className={idvalid ? "check-img-visible" : "none"}
                 src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/checkBlue.svg"
               />
             </div>
             <div
               className={
                 password.length >= 6
-                  ? "pw-input-container-blue"
+                  ? "pw-input-container blue"
                   : "pw-input-container"
               }
             >
               <input
-                type="text"
+                type="password"
                 placeholder="비밀번호 (6자 이상)"
                 className="pw-input"
                 name="password"
                 onChange={this.inputHandler}
               />
               <img
-                className={
-                  password.length >= 6 ? "check-img-visible" : "check-img-none"
-                }
+                className={password.length >= 6 ? "check-img-visible" : "none"}
                 src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/checkBlue.svg"
               />
             </div>
             <button
               className={
-                userid.includes("@") &&
-                userid.includes(".co") &&
-                userid.length >= 10 &&
-                password.length >= 6
-                  ? "login-btn-container-blue"
+                idvalid && password.length >= 6
+                  ? "login-btn-container bg-blue"
                   : "login-btn-container"
               }
-              onClick={this.handlelogin}
+              onClick={this.handleClick}
             >
               <p className="login-btn-text">로그인</p>
             </button>
