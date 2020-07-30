@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PageTop from "../PageTop/PageTop";
 import Config from "../../config";
 import "./Signup.scss";
 
@@ -38,10 +39,18 @@ class Signup extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  goToMain = () => {
+    this.props.history.push("/main");
+  };
+
   render() {
+    const { goToMain } = this;
     return (
       <div className="Signup">
+        <PageTop />
         <img
+          onClick={goToMain}
+          alt="logo"
           className="signup-logo"
           src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/WiselyLogo.svg"
         />
