@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import API_URL from "./config";
 import "./Login.scss";
 
 class Login extends Component {
@@ -17,7 +18,7 @@ class Login extends Component {
   };
 
   handleClick = (e) => {
-    fetch("http://10.58.2.20:8000/user/SignIn", {
+    fetch(`${API_URL}/user/SignIn`, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -44,9 +45,7 @@ class Login extends Component {
 
   render() {
     const { email, password } = this.state;
-    const idvalid =
-      email.includes("@") && email.includes(".co") && email.length >= 10;
-    console.log(this.state);
+    const idvalid = email.includes("@", "co") && email.length >= 10;
     return (
       <div className="Login">
         <img
