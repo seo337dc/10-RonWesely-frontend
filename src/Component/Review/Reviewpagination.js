@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Reviewitem from "./reviewitem";
 import "./Reviewpagination.scss";
+import "../../config";
 
 class Reviewpagination extends Component {
   constructor() {
@@ -11,7 +12,7 @@ class Reviewpagination extends Component {
   }
 
   componentDidMount() {
-    fetch("http://10.58.2.54:8000/order/Review")
+    fetch(`${Config.IP}/order/Review`)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
