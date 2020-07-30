@@ -4,7 +4,7 @@ import Nav from "./Pages/Main/Nav/Nav";
 import Main from "./Pages/Main/Main";
 import Footer from "./Component/Footer/Footer";
 import BulkPackageSale from "./Component/BulkPackageSale/BulkPackageSale";
-
+import Mypage from "./Pages/Member/Mypage/Mypage";
 import Login from "./Pages/Member/Login";
 import Product from "./Pages/Product/Product";
 
@@ -19,6 +19,7 @@ class Routes extends React.Component {
           <Route exact path="/bulkpackagesale" component={BulkPackageSale} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/product" component={Product} />
+          <Route exact path="/mypage" component={Mypage} />
         </Switch>
       </Router>
     );
