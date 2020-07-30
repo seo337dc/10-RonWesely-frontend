@@ -5,34 +5,23 @@ class MethodList extends Component {
     active: true,
   };
 
-  getIndex = () => {
-    const { index } = this.props;
-    console.log(this.props.index);
-    if (
-      index === 0 ||
-      index === 1 ||
-      index === 2 ||
-      index === 3 ||
-      index === 4
-    ) {
-      this.setState({
-        active: !this.state.active,
-      });
-    }
+  listActive = () => {
+    this.setState({
+      active: !this.state.active,
+    });
   };
 
   render() {
     const { active } = this.state;
-    const { img, text, handlechangeActive } = this.props;
-    const { getIndex } = this;
+    const { img, text } = this.props;
+    const { listActive } = this;
     return (
       <div className="MethodList">
-        <div
-          className="list-light-index"
-          // onClick={handlechangeActive(this.props.index)}
-          onClick={getIndex}
-        >
-          <div className={active ? "option-list" : "option-list-active"}>
+        <div className="list-light-index">
+          <div
+            className={`option-list ${!active ? "active" : ""}`}
+            onClick={listActive}
+          >
             <div className="list-img-box">
               <img alt="카카오페이" src={img} />
             </div>

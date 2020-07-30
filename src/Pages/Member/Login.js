@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import PageTop from "../PageTop/PageTop";
 import "./Login.scss";
 
 class Login extends Component {
@@ -42,12 +43,19 @@ class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  goToMain = () => {
+    this.props.history.push("/main");
+  };
+
   render() {
     const { userid, password } = this.state;
-
+    const { goToMain } = this;
     return (
       <div className="Login">
+        <PageTop />
         <img
+          onClick={goToMain}
+          alt="logo"
           className="login-logo"
           src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/WiselyLogo.svg"
         />

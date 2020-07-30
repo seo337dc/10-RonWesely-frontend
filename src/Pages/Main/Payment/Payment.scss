@@ -31,7 +31,6 @@
       .option-header {
         display: flex;
         justify-content: space-between;
-        padding: unset;
         height: 80px;
         border-bottom: 1px solid #cecece;
 
@@ -82,52 +81,33 @@
           }
         }
 
-        .option-list-box {
-          .option-list {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            padding: 6px 14px;
-            border: 1px solid #cecece;
-            border-radius: 4px;
-            width: 350px;
-            height: 60px;
-            cursor: pointer;
+        .option-list {
+          display: flex;
+          align-items: center;
+          margin-bottom: 8px;
+          padding: 6px 14px;
+          border: 1px solid #cecece;
+          border-radius: 4px;
+          width: 350px;
+          height: 60px;
+          cursor: pointer;
 
-            .list-img-box {
-              margin-right: 14px;
-              width: 50px;
-            }
-            .option-text {
-              color: #979797;
-              font-weight: 300;
-            }
-          }
-
-          .option-list-active {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            padding: 6px 14px;
+          &.active {
             border: 1px solid #0055b8;
-            border-radius: 4px;
-            width: 350px;
-            height: 60px;
-            cursor: pointer;
-
-            .list-img-box {
-              margin-right: 14px;
-              width: 50px;
-            }
-            .option-text {
-              color: #979797;
-              font-weight: 300;
-            }
+          }
+          .list-img-box {
+            margin-right: 14px;
+            width: 50px;
+          }
+          .option-text {
+            color: #979797;
+            font-weight: 300;
           }
         }
 
         .option-bottom {
           margin-top: 16px;
+
           .payment-button {
             display: inline-block;
             outline: none;
@@ -139,19 +119,11 @@
             font-weight: 400;
             font-size: 20px;
             background-color: #cecece;
-          }
-          .payment-button-light {
-            display: inline-block;
-            outline: none;
-            border: 0;
-            border-radius: 4px;
-            width: 100%;
-            height: 60px;
-            color: #fff;
-            font-weight: 400;
-            font-size: 20px;
-            background-color: #0055b8;
-            cursor: pointer;
+
+            &.active {
+              background-color: #0055b8;
+              cursor: pointer;
+            }
           }
         }
       }
@@ -170,9 +142,43 @@
 
       .cart-box {
         width: 425px;
-        padding-top: 55px;
-        padding-right: 10px;
-        padding-bottom: 200px;
+        padding: 55px 10px 200px 0;
+
+        .selected-item-price-div {
+          margin-top: 20px;
+          padding: 0 10px;
+
+          .price-box {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 300;
+            line-height: 130%;
+            letter-spacing: -0.06em;
+            color: #979797;
+          }
+
+          .delivery-fee-box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6px;
+            font-weight: 300;
+            line-height: 130%;
+            letter-spacing: -0.06em;
+            color: #979797;
+          }
+
+          .total-price-box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 130%;
+            letter-spacing: -0.06em;
+            color: #3a3a3a;
+          }
+        }
       }
     }
   }

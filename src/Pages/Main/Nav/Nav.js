@@ -17,7 +17,12 @@ class Nav extends Component {
     });
   };
 
+  goToMain = () => {
+    this.props.history.push("/main");
+  };
+
   render() {
+    const { goToMain } = this;
     return (
       <div className="Nav">
         <div className="header-wrapper-subscription-bg-active">
@@ -27,6 +32,7 @@ class Nav extends Component {
                 <h1 className="wesely-logo">
                   <span role="link" tabIndex="0" className="home-link">
                     <img
+                      onClick={goToMain}
                       alt="wesely-logo"
                       className="logo"
                       src="https://wiselyshave-cdn.s3.amazonaws.com/assets/images/WiselyLogo.svg"

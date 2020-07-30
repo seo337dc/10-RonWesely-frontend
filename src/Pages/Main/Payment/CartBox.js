@@ -18,19 +18,17 @@ class CartBox extends Component {
             <img alt="goodsImg" className="selected-image" src={image_url} />
           </div>
           <div className="item-info-box">
-            <div className="item-info-left">
-              <div className="item-info-title">
+            <div className="left">
+              <div className="title">
                 {`${item_name}-`}
-                <span className="item-info-quantity"> {`${quantity}개`}</span>
+                <span className="quantity"> {`${quantity}개`}</span>
               </div>
-              <div className="item-info-description">
-                <span className="item-info-option-value-navy">{color}</span>
+              <div className="description">
+                <span className="option-value-navy">{color}</span>
                 <span className="inserted">{description}</span>
               </div>
             </div>
-            <div className="item-info-price">{`${Number(
-              price
-            ).toLocaleString()}원`}</div>
+            <div className="price">{`${Number(price).toLocaleString()}원`}</div>
           </div>
         </div>
       </div>
