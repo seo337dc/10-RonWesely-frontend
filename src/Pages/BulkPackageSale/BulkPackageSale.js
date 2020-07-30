@@ -166,21 +166,26 @@ class BulkPackageSale extends Component {
     ////////////////
     // 정보 보내는 틀 잡아놓음.
 
-    // fetch(, {
-    //   method : "POST",
-    //   headers: {
-    //     Authorization:
-    //     "",
-    //   },
-    //   body : JSON.stringify({
-    //    product_id: ProductId,
-    //    quantity: ListIndex,
-    //   }),
-    // })
-    // .then((res) => res.json())
-    // .then((res) => {
-    //   localStorage.setItem("access_token", res.access_tokken);
-    // });
+    fetch("http://10.58.4.52:8000/order/bulk-order", {
+      method: "POST",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.DbCRvyvj5ai7zxm8dwLI_zb-CNNI5jvEA9j43cWkovc",
+      },
+      body: JSON.stringify({
+        Info: [
+          {
+            product_id: ProductId,
+            quantity: ListIndex + 1,
+          },
+        ],
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("access_token", res.access_tokken);
+      });
   };
 
   render() {

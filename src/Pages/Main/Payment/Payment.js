@@ -50,6 +50,7 @@ class Payment extends Component {
       .then((res) => {
         localStorage.setItem("access_token", res.access_token);
         alert("결제가 완료 됐습니다.");
+        console.log(totalAmount.order_id);
         this.props.history.push("/main");
       });
   };
