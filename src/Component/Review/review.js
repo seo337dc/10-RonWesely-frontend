@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Reviewpagination from "./Reviewpagination";
+import ReviewContainer from "./ReviewContainer";
 import Footer from "../Footer/Footer";
 import "./review.scss";
 class Review extends Component {
@@ -19,7 +19,7 @@ class Review extends Component {
             <div className="raiting-box flex-center">
               <div className="star-raiting flex-center">
                 <div className="rating-num">
-                  <span className="raiting-big">4.6</span>{" "}
+                  <span className="raiting-big">4.6</span>
                   <span className="raiting-short"> / 5</span>
                 </div>
                 <div className="rating-star-box">
@@ -55,7 +55,7 @@ class Review extends Component {
                   </span>
                 </div>
                 <p className="bold-light">
-                  <span className="bold">5개</span>의 후기{" "}
+                  <span className="bold">5개</span>의 후기
                 </p>
               </div>
               <div className="graph-rating flex-center">
@@ -107,7 +107,7 @@ class Review extends Component {
               </div>
             </div>
           </div>
-          <Reviewpagination />
+          <ReviewContainer />
         </div>
         <Footer />
       </>
